@@ -29,7 +29,6 @@ const Pokedex = () => {
     }
 
     const filterTypes = (e) => {
-        alert('se selecciono un tipo' + e.target.value)
         axios.get(e.target.value)
         .then(res => setPokemons(res.data.pokemon))
     }
