@@ -1,7 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import pokedexBanner from "../images/pokedexBanner.svg";
+import pokeball from "../images/pokeball.svg";
+import styled from "styled-components";
+import ProgressBar from "./ProgressBar";
+
 
 
 
@@ -9,27 +13,14 @@ import pokedexBanner from "../images/pokedexBanner.svg";
 const PokemonDetail = () => {
 
     const [pokemons, setPokemons] = useState({});
+    const navigate = useNavigate();
 
-    /*<aside id="landing-page-sec-2" className="aside2">
-                        <div className="skill-bars">
-                            <h4 className="skill1">HP:</h4>
-                            <h4 className="skill1">Attack:</h4>
-                            <h4 className="porcentaje1">{pokemons?.stats[1].base_stat}/150</h4>
-                            <div className="progress-bar1" style={{ width: "60px" }} data-label=""> </div>
-                            <h4 className="skill2">Defense</h4>
-                            <h4 className="porcentaje2">{pokemons?.stats[2].base_stat}/150</h4>
-                            <div className="progress-bar2" style={{ width: "60px" }} data-label=""> </div>
-                            <h4 className="skill3">Speed</h4>
-                            <h4 className="porcentaje3">{pokemons?.stats[5].base_stat}/150</h4>
-                            <div className="progress-bar3" style={{ width: "60px" }} data-label=""> </div>
-                        </div>
-                    </aside>*/
 
     const { id } = useParams();
 
     useEffect(() => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-            .then(res =>setPokemons(res.data))
+            .then(res => setPokemons(res.data))
     }, [id]);
 
     const moves = pokemons.moves;
@@ -130,6 +121,8 @@ const PokemonDetail = () => {
                 </div>
             </div>
 
+            <i className="fa-solid fa-arrow-left" onClick={() => navigate('/pokedex')}></i>
+
             <article style={{ background: backgroundColor(pokemons?.types?.[0].type.name) }}>
                 <div className="s-card-top-space">
                     <img src={pokemons?.sprites?.other.dream_world.front_default} className="pokemon" alt="" />
@@ -148,43 +141,41 @@ const PokemonDetail = () => {
                     </div>
                     <div className="characteristics">
                         <div className="c-one">
-                            <h2>Type</h2>
+                            <h2 style={{ color: textColor(pokemons?.types?.[0].type.name) }}>Type</h2>
                             <div>
                                 <button style={{ background: backgroundColor(pokemons?.types?.[0].type.name) }}>{capitalizeFirstLetter(pokemons?.types?.[0].type?.name)}</button>
                                 <button style={{ background: backgroundColor(pokemons?.types?.[1]?.type.name) }}>{capitalizeFirstLetter(pokemons?.types?.[1]?.type?.name)}</button>
                             </div>
                         </div>
                         <div className="c-two">
-                            <h2>Abilities</h2>
+                            <h2 style={{ color: textColor(pokemons?.types?.[0].type.name) }}>Abilities</h2>
                             <div>
                                 <button>{capitalizeFirstLetter(pokemons?.abilities?.[0].ability.name)}</button>
-                                <button>{capitalizeFirstLetter(pokemons?.abilities?.[1].ability.name)}</button>
+                                <button>{capitalizeFirstLetter(pokemons?.abilities?.[1]?.ability.name)}</button>
                             </div>
                         </div>
                     </div>
                 </div>
-    
+
                 <div className="s-card-bottom-space">
-                    <h3>Stats</h3>
-                    <h4>HP: {pokemons?.stats?.[0].base_stat}/150</h4>
-                    <progress max="150" value={pokemons?.stats?.[0].base_stat}></progress>
-                    <h4>Attack: {pokemons?.stats?.[1].base_stat}/150</h4>
-                    <progress max="150" value={pokemons?.stats?.[1].base_stat}></progress>
-                    <h4>Defense: {pokemons?.stats?.[2].base_stat}/150</h4>
-                    <progress max="150" value={pokemons?.stats?.[2].base_stat}></progress>
-                    <h4>Speed: {pokemons?.stats?.[5].base_stat}/150</h4>
-                    <progress max="150" value={pokemons?.stats?.[5].base_stat}></progress>
+                    <div className="stats-header">
+                        <h3 style={{ color: textColor(pokemons?.types?.[0].type.name) }}>Stats</h3>
+                        <hr />
+                        <img src={pokeball} className="pokeball" alt="" />
+                    </div>
+
+                    <ProgressBar hp={pokemons?.stats?.[0].base_stat} attack={pokemons?.stats?.[1].base_stat} defense={pokemons?.stats?.[2].base_stat} speed={pokemons?.stats?.[5].base_stat} color={textColor(pokemons?.types?.[0].type.name)} max={150} width={"90%"} />
                 </div>
             </article>
             <article className="article-two" style={{ background: backgroundColor(pokemons?.types?.[0].type.name) }}>
-                    <h3>Movements</h3>
-                    <aside>
+                <h3>Movements</h3>
+                <aside>
                     {
                         moves?.map(move => (
                             <div key={move.move.name} className="movements"> <p>{move.move.name}</p></div>
                         ))
                     }
-                    </aside>
+                </aside>
             </article>
         </section>
     );

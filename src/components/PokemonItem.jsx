@@ -95,7 +95,6 @@ const PokemonItem = ({ pokemonUrl }) => {
             .then(res => setPokemonItem(res.data))
     }, []);
 
-console.log(pokemonItem);
 
     
     return (
