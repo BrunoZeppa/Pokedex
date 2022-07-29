@@ -103,7 +103,7 @@ const PokemonItem = ({ pokemonUrl }) => {
             <div className='card-middle-space'>
                 <img src={pokemonItem.sprites?.other.dream_world?.front_default} alt="" />
                 <h3 style={{color: textColor(pokemonItem.types?.[0].type?.name)}}>{capitalizeFirstLetter(pokemonItem.name)}</h3>
-                <p>{capitalizeFirstLetter(pokemonItem.types?.[0].type?.name)}</p>
+                <p>{capitalizeFirstLetter(pokemonItem.types?.[0].type?.name)}{capitalizeFirstLetter(pokemonItem.types?.[1]?.type?.name)? `/${capitalizeFirstLetter(pokemonItem.types?.[1]?.type?.name)}` : " "}</p>
                 <small>Type</small>
             </div>
             <div className='card-bottom-space'>
