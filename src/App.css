@@ -281,7 +281,7 @@ html {
     margin-right: 10%;
     display: flex;
     flex-wrap: wrap;
-    gap: 26px;
+    gap: 25px;
     justify-content: center;
   }
 
@@ -745,6 +745,10 @@ html {
   }
   section i {
     margin-top: 45px;
+  }
+  .card-container {
+    margin-left: 6%;
+    margin-right: 6%;
   }
 
   .characteristics {
