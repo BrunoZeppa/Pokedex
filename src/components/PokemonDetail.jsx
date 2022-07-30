@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import pokedexBanner from "../images/pokedexBanner.svg";
 import pokeball from "../images/pokeball.svg";
-import styled from "styled-components";
 import ProgressBar from "./ProgressBar";
 
 

@@ -1,11 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import PokemonItem from './PokemonItem';
 import pokedexBanner from '../images/pokedexBanner.svg';
 
 const Pokedex = () => {
+
+    const {isDark} = useParams();
+
+    document.body.style = `background: ${isDark? 'rgb(29, 27, 27)' : 'rgb(253, 253, 253)'}`;
+
 
     const user = useSelector(state => state.user)
     const [pokemons, setPokemons] = useState([]);
@@ -96,10 +101,10 @@ const Pokedex = () => {
                 <div className='black-line'>
                     <div className='ellipse'>
                         <div className='black-circle'>
-                            <div className='gray-circle'>
+                            <div className='gray-circle' onClick={() => navigate('/settings')}>
+                            <i className="fa-solid fa-gear"></i>
 
                             </div>
-
                         </div>
                     </div>
                 </div>
