@@ -130,6 +130,7 @@ html {
     justify-content: center;
     align-content: center;
     flex-direction: column;
+    padding-right: 1% ;
   }
 
   main .red-line {
@@ -290,6 +291,7 @@ html {
     padding-right: 10px;
     padding-left: 10px;
     color: #6e6e6e;
+    cursor: pointer;
   }
 
   .card-container {
@@ -795,7 +797,7 @@ html {
   justify-content: center;
   margin: 20px 0;
   }
-  
+
   [type=checkbox], [type=radio] {
     box-sizing: border-box;
     padding: 0;
