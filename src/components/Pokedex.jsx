@@ -13,6 +13,8 @@ const Pokedex = () => {
 
     const isDark = useSelector(state => state.isDark);
 
+    const pokemonsPerPage = useSelector(state => state.pokemonsPerPage)
+
     document.body.style = `background: ${isDark ? 'rgb(29, 27, 27)' : 'white'} `;
 
     const [pokemons, setPokemons] = useState([]);
@@ -43,13 +45,13 @@ const Pokedex = () => {
     const [page, setPage] = useState(1);
 
     /*======= this consts show the pokemons per page ============*/
-    const lastIndex = page * 20;
-    const firstIndex = lastIndex - 20;
+    const lastIndex = page * pokemonsPerPage;
+    const firstIndex = lastIndex - pokemonsPerPage;
     const pokemonsPagination = pokemons.slice(firstIndex, lastIndex)
 
     const numbers = [];
 
-    let lastPage = Math.ceil(pokemons.length / 20)
+    let lastPage = Math.ceil(pokemons.length / pokemonsPerPage)
     let initialPage = page < 5 ? 1 : (page - 4)
     if (page < (lastPage - 5)) {
         if (page > 5) {
