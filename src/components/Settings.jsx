@@ -30,7 +30,7 @@ const Settings = () => {
                 </div>
             </div>
             <div className='settings'>
-                <i className="fa-solid fa-arrow-left" onClick={() => navigate('/pokedex')} style={{ color: isDark ? 'white' : '' }}></i>
+                <i className="fa-solid fa-arrow-left" onClick={() => navigate('/pokedex')} style={{ color: isDark ? 'white' : '', fontSize: "42px" }}></i>
                 <aside>
                     <h2 style={{ color: isDark ? 'white' : '' }}>Change theme</h2>
                     <div className="check-container center first">

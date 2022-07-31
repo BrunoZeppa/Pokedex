@@ -502,6 +502,22 @@ html {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -o-border-radius:50%;
+    transition: all 800ms ease-in-out;
+    cursor: pointer;
+  }
+
+  section .gray-circle:hover {
+    -ms-transform: rotate(360deg); 
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    border:10px #773355 solid;
   }
 
   section article {
@@ -513,11 +529,17 @@ html {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 
-  section i {
+  .return {
+    width: 60px;
+    height: 50px;
     font-size: 42px;
     margin-left: 40px;
     cursor: pointer;
     margin-top: 15px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   section .pokemon {
@@ -773,6 +795,7 @@ html {
   justify-content: center;
   margin: 20px 0;
   }
+  
   [type=checkbox], [type=radio] {
     box-sizing: border-box;
     padding: 0;
@@ -842,9 +865,7 @@ html {
     width: 1116px;
     margin-top: 50px;
   }
-  section i {
-    margin-top: 45px;
-  }
+ 
   .card-container {
     margin-left: 5%;
     margin-right: 5%;

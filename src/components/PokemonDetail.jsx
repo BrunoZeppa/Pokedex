@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import pokedexBanner from "../images/pokedexBanner.svg";
 import pokeball from "../images/pokeball.svg";
 import ProgressBar from "./ProgressBar";
+import { useSelector } from "react-redux";
 
 
 
@@ -13,6 +14,7 @@ const PokemonDetail = () => {
 
     const [pokemons, setPokemons] = useState({});
     const navigate = useNavigate();
+    const isDark = useSelector(state => state.isDark);
 
 
     const { id } = useParams();
@@ -107,20 +109,21 @@ const PokemonDetail = () => {
 
     return (
         <section>
-
             <div className='red-line'>
                 <img src={pokedexBanner} alt="" className='banner' />
                 <div className='black-line'>
                     <div className='ellipse'>
                         <div className='black-circle'>
-                            <div className='gray-circle'>
+                            <div className='gray-circle' onClick={() => navigate('/settings')}>
+                            <i className="fa-solid fa-gear"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <i className="fa-solid fa-arrow-left" onClick={() => navigate('/pokedex')}></i>
+            <div className="return">
+            <i className="fa-solid fa-arrow-left" onClick={() => navigate('/pokedex')} style={{color: isDark? "white" : " "}}></i>
+            </div>
 
             <article style={{ background: backgroundColor(pokemons?.types?.[0].type.name) }}>
                 <div className="s-card-top-space">
