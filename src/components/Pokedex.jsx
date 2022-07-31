@@ -1,18 +1,20 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PokemonItem from './PokemonItem';
 import pokedexBanner from '../images/pokedexBanner.svg';
 
+
+
 const Pokedex = () => {
+    
+    const user = useSelector(state => state.user);
 
-    const {isDark} = useParams();
+    const isDark = useSelector(state => state.isDark);
 
-    document.body.style = `background: ${isDark? 'rgb(29, 27, 27)' : 'rgb(253, 253, 253)'}`;
+    document.body.style = `background: ${isDark ? 'rgb(29, 27, 27)' : 'white'} `;
 
-
-    const user = useSelector(state => state.user)
     const [pokemons, setPokemons] = useState([]);
     const [pokemonSearch, setPokemonSearch] = useState("");
     const navigate = useNavigate();
@@ -110,7 +112,7 @@ const Pokedex = () => {
                 </div>
             </div>
             <div className='user-box'>
-                <p><span>Welcome {user}, </span> lets find your pokemon</p>
+                <p style={{color: isDark? "white" : " "}}><span>Welcome {user}, </span> lets find your pokemon</p>
                 <div className='log-out' onClick={() => navigate('/')}><i className="fa-solid fa-right-from-bracket"></i></div>
             </div>
             <nav>
@@ -119,10 +121,11 @@ const Pokedex = () => {
                         value={pokemonSearch}
                         onChange={e => setPokemonSearch(e.target.value)}
                         placeholder='Type a pokemon'
+                        style={{background: isDark? "black" : " ",color: isDark? "white" : " "}}
                     />
                     <button>search</button>
                 </form >
-                <select onChange={filterTypes}>
+                <select onChange={filterTypes} style={{background: isDark? "black" : " ",color: isDark? "hsl(210, 1%, 40%)" : " "}}>
                     <option value=''>Or select by type</option>
                     {
                         pokemonsTypes.map(type => (

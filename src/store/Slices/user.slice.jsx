@@ -9,13 +9,11 @@ import { createSlice } from '@reduxjs/toolkit';
 // 5. despachamos la acción
 export const userSlice = createSlice({
 		name: 'user',
-    initialState: "",
+    initialState: '',
     reducers: {
       changeUser: (state, action) => {
-        return action.payload
-
-      }
-        
+        return action.payload;
+      },
     }
 })
 

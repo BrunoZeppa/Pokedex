@@ -1,8 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit'
-import userSlice from './Slices/user.slice'
+import { configureStore } from '@reduxjs/toolkit';
+import isDarkSlice from './Slices/isDark.slice';
+import userSlice from './Slices/user.slice';
 
 export default configureStore({
   reducer: {
-    user: userSlice
+    user: userSlice, 
+    isDark: isDarkSlice
 	}
 })

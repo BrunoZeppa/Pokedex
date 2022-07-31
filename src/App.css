@@ -734,10 +734,17 @@ html {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 30px;
+  }
+  .settings .fa-solid{
+    align-self: flex-start;
+    font-size: 30px;
+    position: absolute;
+    margin-right: 80%;
+    cursor: pointer;
   }
 
   .settings aside{
-    border: red 2px solid;
     margin-top: auto;
     margin-bottom: auto;
     width: 300px;
@@ -745,9 +752,10 @@ html {
     -webkit-transition: color .2s ease;
     transition: color .2s ease;
     font-family: Arial, Helvetica, sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    text-align: left;
   }
   .settings div{
-    border: red 2px solid;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -757,6 +765,7 @@ html {
 
   .settings h2{
     margin-bottom: 20px;
+    font-size: 16px;
   }
   center {
   display: flex;
