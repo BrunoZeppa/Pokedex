@@ -17,8 +17,6 @@ html {
 
 @media screen and (min-width: 350px) {
 
-
-
   header {
     background-color: white;
     min-height: 100vh;
@@ -153,9 +151,9 @@ html {
   }
 
   main .banner {
-    width: 330px;
+    width: 230px;
     position: absolute;
-    margin-top: 20px;
+    margin-top: 34px;
     margin-left: 10%;
   }
 
@@ -169,6 +167,7 @@ html {
     justify-content: center;
     align-items: center;
     border: black solid 6px;
+    margin-right: -40px;
   }
 
   main .black-circle {
@@ -753,6 +752,15 @@ html {
   }
 
   /* -=========== Settings ==============---*/
+  section .banner{
+    width: 230px;
+    position: absolute;
+    margin-top: 34px;
+    margin-left: 10%;
+  }
+  section .ellipse{
+    margin-right: -40px;
+  }
   .settings{
     display: flex;
     align-items: center;
@@ -847,8 +855,17 @@ html {
     justify-content: start;
   }
 
+  main .banner {
+    width: 330px;
+    margin-top: 20px;
+  }
+
   main p {
     width: unset;
+  }
+
+  main .ellipse {
+    margin-right: 0px;
   }
 
   .user-box .log-out {
@@ -894,5 +911,12 @@ html {
   .s-card-bottom-space .stats-header {
     padding-left: 5%;
     gap: 0;
+  }
+  section .banner{
+    width: 330px;
+    margin-top: 20px;
+  }
+  section .ellipse{
+    margin-right: 0px;
   }
 }
