@@ -310,7 +310,11 @@ html {
     padding: 15px;
     background: linear-gradient(180deg, #B1DBBC 5%, #C3DEA3 30%);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-   
+  }
+
+  @media screen and (max-height: 667px){
+
+    
   }
 
 
@@ -333,6 +337,14 @@ html {
     width: 130px;
     position: absolute;
     margin-top: -110px;
+  }
+  @media screen and (max-height: 667px){
+    article img {
+      width: 130px;
+      position: absolute;
+      margin-top: -150px;
+    }
+    
   }
 
   article h3 {
