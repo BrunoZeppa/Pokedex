@@ -312,10 +312,6 @@ html {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
 
-  @media screen and (max-height: 667px){
-
-    
-  }
 
 
   .card-top-space {
@@ -342,7 +338,7 @@ html {
     article .item-img {
       width: 130px;
       position: absolute;
-      margin-top: -165px;
+      margin-top: -175px;
     }
     
   }
