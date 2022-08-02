@@ -14,6 +14,7 @@ const PokemonItem = ({ pokemonUrl }) => {
         return string?.charAt(0).toUpperCase() + string?.slice(1);
       }
       
+      
       const textColor = (type) => {
         if(type == "grass"){
             return '#416460'
@@ -101,7 +102,7 @@ const PokemonItem = ({ pokemonUrl }) => {
         <article onClick={() => navigate(`/pokemondetail/${pokemonItem.id}`)} style={{background: backgroundColor(pokemonItem.types?.[0].type?.name)}}>
             <div className='card-top-space'></div>
             <div className='card-middle-space'>
-                <img src={pokemonItem.sprites?.other.dream_world?.front_default} alt="" />
+                <img src={pokemonItem.sprites?.other.dream_world?.front_default} alt="" className='item-img' />
                 <h3 style={{color: textColor(pokemonItem.types?.[0].type?.name)}}>{capitalizeFirstLetter(pokemonItem.name)}</h3>
                 <p>{capitalizeFirstLetter(pokemonItem.types?.[0].type?.name)}{capitalizeFirstLetter(pokemonItem.types?.[1]?.type?.name)? `/${capitalizeFirstLetter(pokemonItem.types?.[1]?.type?.name)}` : " "}</p>
                 <small>Type</small>

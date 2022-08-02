@@ -333,13 +333,13 @@ html {
     text-align: center;
   }
 
-  article img {
+  article .item-img {
     width: 130px;
     position: absolute;
     margin-top: -110px;
   }
   @media screen and (max-height: 667px){
-    article img {
+    article .item-img {
       width: 130px;
       position: absolute;
       margin-top: -165px;
@@ -553,9 +553,10 @@ html {
   }
 
   section .pokemon {
-    width: 341px;
-    height: 314px;
+    width: 260px;
+    height: 300px;
     position: absolute;
+    margin-top: -100px;
   }
 
   .s-card-top-space {
@@ -939,5 +940,11 @@ html {
   }
   section .ellipse{
     margin-right: 0px;
+  }
+
+  section .pokemon {
+    width: 341px;
+    height: 314px;
+    position: absolute;
   }
 }

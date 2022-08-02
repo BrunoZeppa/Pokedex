@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PokemonItem from './PokemonItem';
 import pokedexBanner from '../images/pokedexBanner.svg';
+import { getSuggestionThunk, setSuggestionSearch } from '../store/Slices/suggestionSearch.slice';
 
 
 
@@ -13,7 +14,13 @@ const Pokedex = () => {
 
     const isDark = useSelector(state => state.isDark);
 
-    const pokemonsPerPage = useSelector(state => state.pokemonsPerPage)
+    const pokemonsPerPage = useSelector(state => state.pokemonsPerPage);
+
+    const suggestionSearch = useSelector(state => state.suggestionSearch);
+
+    const dispatch = useDispatch();
+
+    
 
     document.body.style = `background: ${isDark ? 'rgb(29, 27, 27)' : 'white'} `;
 
@@ -29,6 +36,13 @@ const Pokedex = () => {
         axios.get('https://pokeapi.co/api/v2/type/')
             .then(res => setPokemonsTypes(res.data.results))
     }, [])
+
+    useEffect(() => {
+        dispatch(getSuggestionThunk(pokemonSearch));
+
+        axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/products/categories/')
+            .then(res => setSuggestionSearch(res.data.results))
+    }, [pokemonSearch])
 
 
 
@@ -130,6 +144,16 @@ const Pokedex = () => {
                     />
                     <button>search</button>
                 </form >
+            
+
+                <div className='suggestion-search-container'>
+                {suggestionSearch.map(suggestion => (
+                    <div key={suggestion.name} className='sugestion-card'><p>{suggestion.name}</p></div>
+                ))
+                }
+                </div>
+
+
                 <select onChange={filterTypes} style={{background: isDark? "black" : " ",color: isDark? "hsl(210, 1%, 40%)" : " "}}>
                     <option value=''>Or select by type</option>
                     {
