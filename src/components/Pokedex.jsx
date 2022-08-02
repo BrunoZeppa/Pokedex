@@ -96,6 +96,9 @@ const Pokedex = () => {
         }
     }
 
+    const lowerCaseFirstLetter = (string) => {
+        return string?.charAt(0).toLowerCase() + string?.slice(1);
+      }
 
 
     return (
@@ -121,7 +124,7 @@ const Pokedex = () => {
                 <form onSubmit={search}>
                     <input type="text"
                         value={pokemonSearch}
-                        onChange={e => setPokemonSearch(e.target.value)}
+                        onChange={e => setPokemonSearch(lowerCaseFirstLetter( e.target.value))}
                         placeholder='Type a pokemon'
                         style={{background: isDark? "black" : " ",color: isDark? "white" : " "}}
                     />
